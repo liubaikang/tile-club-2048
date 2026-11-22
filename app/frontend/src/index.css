@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+SC:wght@400;500;700&family=ZCOOL+QingKe+HuangYou&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 42% 94%;
+    --foreground: 25 33% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 33% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 33% 11%;
+
+    --primary: 22 21% 20%;
+    --primary-foreground: 40 55% 96%;
+
+    --secondary: 36 38% 89%;
+    --secondary-foreground: 25 33% 18%;
+
+    --muted: 36 38% 91%;
+    --muted-foreground: 27 19% 36%;
+
+    --accent: 14 62% 54%;
+    --accent-foreground: 40 55% 97%;
+
+    --destructive: 12 64% 40%;
+    --destructive-foreground: 40 55% 97%;
+
+    --border: 34 32% 83%;
+    --input: 34 32% 83%;
+    --ring: 14 62% 54%;
+
+    --radius: 0.75rem;
+
+    --paper: #f7f2e7;
+    --paper-deep: #f1e9da;
+    --ink: #241a12;
+    --ink-soft: #6c5a4a;
+    --ink-faint: #9c8875;
+    --line: #e3d6c3;
+    --board: #c7ac8c;
+    --board-cell: #bfa17f;
+    --clay: #d4643f;
+    --dark-pill: #3d2f27;
+  }
+
+  * {
+    @apply border-border;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans SC', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .paper-grain {
+    background-color: var(--paper);
+    background-image:
+      radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.7), transparent 46%),
+      radial-gradient(circle at 82% 4%, rgba(214, 191, 158, 0.35), transparent 42%),
+      radial-gradient(rgba(120, 92, 64, 0.055) 1px, transparent 1px);
+    background-size:
+      auto,
+      auto,
+      3px 3px;
+  }
+
+  .display-font {
+    font-family: 'Anton', 'ZCOOL QingKe HuangYou', 'Noto Sans SC', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.04;
+  }
+
+  .label-caps {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .club-card {
+    background-color: #fffdf8;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 1px 0 rgba(36, 26, 18, 0.03);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition:
+      transform 120ms ease,
+      background-color 140ms ease,
+      color 140ms ease,
+      border-color 140ms ease;
+  }
+
+  .pill:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 2px;
+  }
+
+  .pill:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .pill-primary {
+    background-color: var(--dark-pill);
+    color: #fff8ee;
+  }
+
+  .pill-primary:hover:not(:disabled) {
+    background-color: #31241d;
+    transform: translateY(-1px);
+  }
+
+  .pill-secondary {
+    background-color: #efe6d6;
+    color: var(--dark-pill);
+  }
+
+  .pill-secondary:hover:not(:disabled) {
+    background-color: #e7dbc7;
+    transform: translateY(-1px);
+  }
+
+  .pill-ghost {
+    background-color: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+  }
+
+  .pill-ghost:hover:not(:disabled) {
+    border-color: var(--ink-faint);
+    color: var(--ink);
+    transform: translateY(-1px);
+  }
+
+  .text-input {
+    width: 100%;
+    min-height: 44px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background-color: var(--paper-deep);
+    padding: 0 14px;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .text-input::placeholder {
+    color: var(--ink-faint);
+  }
+
+  .text-input:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 1px;
+    border-color: transparent;
+  }
+
+  .board-shell {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    background-color: var(--board);
+    padding: 3.2%;
+    box-shadow: 0 18px 40px -28px rgba(70, 45, 25, 0.55);
+    touch-action: none;
+  }
+
+  .board-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2.4%;
+    height: 100%;
+  }
+
+  .board-cell {
+    border-radius: 10px;
+    background-color: var(--board-cell);
+  }
+
+  .tile-layer {
+    position: absolute;
+    inset: 3.2%;
+    pointer-events: none;
+  }
+
+  .tile {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition:
+      left 110ms cubic-bezier(0.22, 0.61, 0.36, 1),
+      top 110ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    font-family: 'Anton', sans-serif;
+    color: #4a3527;
+    line-height: 1;
+  }
+
+  .tile--new {
+    animation: tile-appear 140ms ease-out;
+  }
+
+  .tile--merged {
+    animation: tile-pop 180ms ease-out;
+  }
+
+  .tile--2 {
+    background-color: #f0e6d7;
+  }
+  .tile--4 {
+    background-color: #e9d3b0;
+  }
+  .tile--8 {
+    background-color: #efa06a;
+    color: #fff8ee;
+  }
+  .tile--16 {
+    background-color: #e98c52;
+    color: #fff8ee;
+  }
+  .tile--32 {
+    background-color: #de7040;
+    color: #fff8ee;
+  }
+  .tile--64 {
+    background-color: #cd5738;
+    color: #fff8ee;
+  }
+  .tile--128 {
+    background-color: #e3b85c;
+  }
+  .tile--256 {
+    background-color: #d5a03c;
+  }
+  .tile--512 {
+    background-color: #c48338;
+    color: #fff8ee;
+  }
+  .tile--1024 {
+    background-color: #ae4029;
+    color: #fff8ee;
+  }
+  .tile--2048 {
+    background-color: #8c3120;
+    color: #fff8ee;
+  }
+  .tile--max {
+    background-color: #3f2419;
+    color: #fff8ee;
+  }
+}
+
+@keyframes tile-appear {
+  from {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes tile-pop {
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overlay-card {
+  animation: overlay-in 180ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile,
+  .overlay-card,
+  .tile--new,
+  .tile--merged {
+    animation: none !important;
+    transition: none !important;
+  }
+}

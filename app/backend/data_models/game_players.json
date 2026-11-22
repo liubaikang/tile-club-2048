@@ -1,0 +1,35 @@
+{
+  "title": "game_players",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "player_key": {
+      "type": "string",
+      "unique": true
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "is_guest": {
+      "type": "boolean"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "read_only": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "read_only": true
+    }
+  },
+  "required": [
+    "player_key",
+    "display_name",
+    "is_guest"
+  ],
+  "create_only": false
+}

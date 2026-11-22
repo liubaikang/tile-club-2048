@@ -1,0 +1,19 @@
+{
+  "status": "partial_success",
+  "results": [
+    {
+      "status": "success",
+      "filename": "homepage-reference.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/1674616/2026-11-22/232h3mqcamlq/homepage-reference.png",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/1674616/2026-11-22/232h3mqcamlq/homepage-reference.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/1674616/2026-11-22/232h3mqcamlq/homepage-reference.png",
+      "requested_size": "1536x1024",
+      "size": "1536x1024",
+      "size_adjustments": []
+    }
+  ],
+  "success_count": 1,
+  "failed_count": 1,
+  "running_count": 0,
+  "message": "Generated 1/2 images total"
+}
