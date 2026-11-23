@@ -116,6 +116,9 @@ const Index = () => {
               <br />
               更大的数字
             </span>
+            <Link to="/docs" className="pill pill-ghost">
+              过程文档
+            </Link>
             <Link to="/account" className="pill pill-ghost">
               账户
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />

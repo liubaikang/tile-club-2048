@@ -10,6 +10,7 @@ import AuthError from './pages/AuthError';
 import { AuthProvider } from './contexts/AuthContext';
 import { PlayerProvider } from './contexts/PlayerContext';
 import AccountPage from './pages/AccountPage';
+import DocsPage from './pages/DocsPage';
 import HomePage from './pages/HomePage';
 import LogoutCallbackPage from './pages/LogoutCallbackPage';
 // MODULE_IMPORTS_END
@@ -24,6 +25,7 @@ const AppRoutes = () => (
     <Route path="/auth/error" element={<AuthError />} />
     {/* MODULE_ROUTES_START */}
     <Route path="/account" element={<AccountPage />} />
+    <Route path="/docs" element={<DocsPage />} />
     <Route path="/profile" element={<HomePage />} />
     <Route path="/logout-callback" element={<LogoutCallbackPage />} />
     {/* MODULE_ROUTES_END */}
